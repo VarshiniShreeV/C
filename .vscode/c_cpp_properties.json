@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "D:/Program Applications/C/ucrt64/include",
+        "D:/Program Applications/C/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include",
+        "D:/Program Applications/C/ucrt64/x86_64-w64-mingw32/include"
+      ],
+      "browse": {
+        "path": [
+          "D:/Program Applications/C/ucrt64/include",
+          "D:/Program Applications/C/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include",
+          "D:/Program Applications/C/ucrt64/x86_64-w64-mingw32/include"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "compilerPath": "D:/Program Applications/C/ucrt64/bin/gcc.exe",
+      "cStandard": "c11",
+      "intelliSenseMode": "windows-gcc-x64"
+    }
+  ],
+  "version": 4
+}

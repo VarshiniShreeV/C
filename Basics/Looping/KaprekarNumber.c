@@ -13,12 +13,13 @@ void main(){
         q=temp/p;
         rem=temp%p;
 
-        if ((q+rem)==n){
+        if ((q+rem)==n && q!=0 && rem!=0){
             flag=1;
             break;
         }
-        p*=10;
+        if (q==0) break;
+        else p*=10;
     }
-    if (flag==1) printf("Yes");
-    else printf("No");
+    if (flag==1) printf("\nYes");
+    else printf("\nNo");
 }

@@ -20,6 +20,30 @@ int count(int num){
     return c;
 }
 
+int digit(int o, int e, int oc, int ec){
+    int count=ec>oc ? ec : oc;
+    int p = pow(10,oc-1);
+    int qo, qe, sum=0;
+    while (count!=0){
+        int digit = 0;
+        qo=o/p;
+        printf("\nQo:%d\n",qo);
+        digit=digit*10+qo;
+        printf("\nODD DIGIT\n%d",digit);
+        qe=e%10;
+        printf("\nQe:%d\n",qe);
+        digit=digit*10+qe;
+        qe/=10;
+        printf("\nQe:%d\n",qe);
+        printf("\nEVEN DIGIT\n%d",digit);
+        sum+=digit;
+        count--;
+        p/=10;
+        printf("\nP:%d\n",p);
+    }
+    printf("\n%d",sum);
+}
+
 void main(){
     int n,evensum=0,oddsum=0,odd=0,even=0,sum=0;
     scanf("%d",&n);
@@ -42,6 +66,6 @@ void main(){
     int odd_count = count(odd);
     int even_count = count(even);
 
-    
-    printf("Sum %d\nEven Digits Sum %d\nOdd Digits Sum %d\nA number of even digits %d\nA number of odd digits %d\nEven Number Reverse %d\nOdd Number Reverse %d",evensum+oddsum,evensum,oddsum,even,odd,reverse(even),reverse(odd));
+    //printf("Sum %d\nEven Digits Sum %d\nOdd Digits Sum %d\nA number of even digits %d\nA number of odd digits %d\nEven Number Reverse %d\nOdd Number Reverse %d",evensum+oddsum,evensum,oddsum,even,odd,reverse(even),reverse(odd));
+    digit(odd,even,odd_count,even_count);
 }

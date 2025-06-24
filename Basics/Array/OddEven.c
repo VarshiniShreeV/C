@@ -1,26 +1,41 @@
 #include <stdio.h>
 
+int sort(int arr[],int s, int e){
+    for (int i = s;i<e;i++){
+        for (int j = i+1; j<e ;j++){
+            if (arr[j]<arr[i]){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
+
 void main(){
-    int a[] = {3,5,2,3,4,6,1,7,2,4,8};
+    int a[] = {1,2,3,4,5,6,7,8,9};
     int size = sizeof(a)/sizeof(a[0]);
 
-    int temp;
+    int i=0,j=size-1,temp;
 
-    int i=0,j=-1;
-
-    while (i!=j){
-        if (a[i]%2==0 && a[j]%2!=0){
-            printf("\n%d %d", a[i],a[j]);
-            temp = a[i];
-            a[i]=a[j];
-            a[j]=temp;
-            printf("\n%d %d", a[i],a[j]);
+    while (i<j){
+        if (a[i]%2==0){
+            if (a[j]%2!=0){
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                i++;
+                j--;
+            }
+            else if(a[j]%2==0) j--;
         }
-        i++;
-        j--;
+        else i++;
     }
 
-    for (int i;i<size;i++){
-        printf("%d\n",a[i]);
-    }
+    for (int k=0;k<size;k++) printf("%d ",a[k]);
+    printf("%d",i);
+    sort(a,0,i);
+    sort(a,i,size);
+    printf("SORTED:");
+    for (int k=0;k<size;k++) printf("%d ",a[k]);
 }

@@ -2,6 +2,28 @@
 
 #include <stdio.h>
 
+void main(){
+    int n;
+    scanf("%d",&n);
+
+    int sum=0,rem;
+
+    while(sum!=1 && sum!=4){
+        sum=0;
+        while(n){
+            rem = n%10;
+            sum += (rem*rem);
+            n/=10;
+        }
+        n=sum;
+    }
+    if (sum==1) printf("Happy Number");
+    else printf("Not a happy number");
+}
+
+/*
+#include <stdio.h>
+
  int sq_sum(int num){
     int q,sum=0;
     while(num){
@@ -24,4 +46,5 @@ void main(){
 
     (val==1) ? printf("Happy Number") : printf("Not a happy Number!") ;
 }
+*/
 

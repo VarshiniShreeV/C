@@ -1,5 +1,29 @@
 // Adam number => Square of a number == Reverse of square of the reversed number
 
+//Adam's Number
+
+#include <stdio.h>
+
+int reverse(int n){
+    int r,rev=0;
+    while(n){
+        r=n%10;
+        rev=(rev*10)+r;
+        n/=10;
+    }
+    return rev;
+}
+
+void main(){
+    int n,flag=0;
+    scanf("%d",&n);
+    int rev = reverse(n);
+    if ((n*n)==(reverse(rev*rev))) printf("Adam's Number");
+    else printf("Not Adam's Number");
+    
+}
+
+/*
 #include <stdio.h>
 
 void main(){
@@ -21,3 +45,4 @@ void main(){
     if (sq==rev_sq_rev) printf("Adam Number");
     else printf("Not a Adam Number");
 }
+*/

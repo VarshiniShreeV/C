@@ -13,13 +13,15 @@ void main(){
         }
     }
 
-
+    //Transpose
     for(i=0;i<r;i++){
-        for(j=0;j<c;j++){
+        for(j=i+1;j<c;j++){
+            if (i!=j){
             int temp = a[i][j];
             a[i][j] = a[j][i];
             a[j][i] = temp; 
         }
+    }
     }
 
     printf("\nTranspose Matrix:\n");

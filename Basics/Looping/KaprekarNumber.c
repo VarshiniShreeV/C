@@ -3,17 +3,16 @@
 #include <stdio.h>
 
 void main(){
-    int n,sq,p=10,temp,q,rem,flag=0;
+    int n,p=10,sq,q,rem,flag=0;
     scanf("%d",&n);
     sq=n*n;
-    temp=sq;
     printf("%d",sq);
 
-    while(temp){
-        q=temp/p;
-        rem=temp%p;
+    while(p<sq){
+        q=sq/p;
+        rem=sq%p;
 
-        if ((q+rem)==n && q!=0 && rem!=0){
+        if (rem!=0 && (q+rem)==n){
             flag=1;
             break;
         }

@@ -1,0 +1,85 @@
+A Tree is a non-linear hierarchical data structure.
+Unlike arrays, linked lists, stacks or queues
+ — which are linear — trees branch out like a real tree.
+
+Trees are used in many places like:
+
+File systems
+Databases
+Artificial Intelligence (like decision trees)
+Compilers
+Search engines
+
+ 2. Basic Terms and Structure
+
+Node: Each element in the tree is called a node.
+Root: The topmost node is called the root node.
+Child: A node that comes from another node is called its child.
+Parent: The node from which a child comes is the parent.
+Leaf: A node with no children is called a leaf node.
+Subtree: A part of a tree is called a subtree.
+Height of tree: Number of edges from root to the deepest leaf.
+Depth of node: Number of edges from root to that particular node.
+One important rule: In a tree with n nodes, there will always be n-1 edges."
+
+"Let’s go through some commonly used types of trees:
+
+Binary Tree: Each node can have at most 2 children — left and right.
+Binary Search Tree (BST): A special binary tree where:
+Left child is less than root
+Right child is greater than root
+It helps in fast searching (O(log n) in average case)
+
+Balanced Binary Tree: Heights of left and right subtrees differ by at most 1.
+AVL Tree: A self-balancing BST. It uses rotations to keep the tree balanced.
+Complete Binary Tree: All levels are filled, except possibly the last.
+Full Binary Tree: Every node has either 0 or 2 children.
+Perfect Binary Tree: All internal nodes have 2 children and all leaves are at same level."
+
+1. Binary Tree (BT)
+🔹 Definition:
+A Binary Tree is a tree data structure where:
+
+Each node has at most 2 children (called left and right).
+
+It is hierarchical – starting from a root node 
+and branching downward.
+
+🔹 Types of Binary Trees:
+Type	                    Description
+Full Binary Tree	      Every node has 0 or 2 children
+Perfect Binary Tree	      All levels are completely filled
+Complete Binary Tree	  All levels except the last 
+                         are filled, and the last is 
+						 filled left to right
+Skewed Binary Tree	      All nodes have only left or 
+                          right child
+Balanced Binary Tree	  Height difference between left 
+                          and right subtrees is minimal 
+						  (Ex: AVL Tree)
+Case	                 Formula	Example (h=3 or N=15)
+Max nodes for height h	2^(h+1) - 1	15
+Min nodes for height h	h + 1	4
+Min height for N nodes	⌊log₂(N)⌋	3
+Max height for N nodes	N - 1	14
+
+				  
+🔹 Tree Traversals (Very Important for Exams & Interviews):
+Type	        Order
+Inorder			Left → Root → Right (LNR)
+Preorder		Root → Left → Right (NLR)
+Postorder		Left → Right → Root (LRN)
+Level Order		Level by level using queue (BFS logic)
+
+4. Tree Traversals
+"Traversal means visiting each node of a tree exactly once in a specific order.
+There are three main types of tree traversals:
+
+1. Inorder (Left, Node, Right)
+	For BST, it gives elements in sorted order.
+2. Preorder (Node, Left, Right)
+	Used to clone or copy trees.
+3. Postorder (Left, Right, Node)
+	Used to delete the tree.
+There is also Level Order Traversal — it visits nodes level by level using a queue."
+

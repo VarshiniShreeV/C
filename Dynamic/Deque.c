@@ -6,13 +6,13 @@ int *arr;
 int f=-1, r=-1;
 
 void enqueueFront(int v, int s){
-    if ((f==0 && r==s-1)||(f == (r+1)%10)) printf("Full!");
-    else if (f==r==-1){
+    if ((f==0 && r==s-1)||(f == (r+1)%s)) printf("Full!");
+    else if (f==-1 && r==-1){
         f=r=0;
         arr[f] = v;
     }
     else{
-        if (f=0){
+        if (f==0){
             f=s-1;
             arr[f] = v;
         }
@@ -24,13 +24,13 @@ void enqueueFront(int v, int s){
 }
 
 void enqueueRear(int v, int s){
-    if ((f==0 && r==s-1)||(f == (r+1)%10)) printf("Full!");
-    else if (f==r==-1){
+    if ((f==0 && r==s-1)||(f == (r+1)%s)) printf("Full!");
+    else if (f==-1 && r==-1){
         f=r=0;
         arr[r] = v;
     }
     else{
-        if (r=s-1){
+        if (r==s-1){
             r=0;
             arr[r] = v;
         }
@@ -41,7 +41,7 @@ void enqueueRear(int v, int s){
     }
 }
 
-void dequeueFront(int v, int s){
+void dequeueFront(int s){
     if (f==-1 && r==-1) printf("Empty!");
     else if (f==r) f=r=-1;
     else{
@@ -52,11 +52,11 @@ void dequeueFront(int v, int s){
     }
 }
 
-void dequeueRear(int v, int s){
+void dequeueRear(int s){
     if (f==-1 && r==-1) printf("Empty!");
     else if (f==r) f=r=-1;
     else{
-        if (r=0) r=s-1;
+        if (r==0) r=s-1;
         else{
             r--;
         }
@@ -64,26 +64,28 @@ void dequeueRear(int v, int s){
 }
 
 void getFront(){
-    printf("%d",arr[f]);
+    printf("%d ",arr[f]);
 }
 
 void getRear(){
-    printf("%d",arr[r]);
+    printf("%d ",arr[r]);
 }
 
-void display(){
+void display(int s){
     if (f==-1 && r==-1) printf("Empty!");
     else{
-        while(f!=r){
-            printf("%d",arr[f]);
-            f = f+1;
+        int i=f;
+        while(i!=(r%s)){
+            printf("%d ",arr[i]);
+            i = (i+1)%s;
         }
+        printf("%d",arr[r]);
     }
 }
 
 
 
-void main(){
+int main(){
     int n;
     scanf("%d",&n);
     arr = (int *)malloc(n*sizeof(int));
@@ -91,7 +93,7 @@ void main(){
     while(1){
         int op;
         int input;
-        printf("##### DEQUE OPERATION #####\n");
+        printf("\n##### DEQUE OPERATION #####\n");
         printf("1. INSERT AT FRONT\n2. INSERT AT BACK\n3. REMOVE FROM FRONT\n4. REMOVE FROM BACK\n5. VALUE AT FRONT\n6. VALUE AT REAR\n7. DISPLAY\n8. EXIT");
         printf("\nEnter:");
         scanf("%d",&op);
@@ -107,14 +109,10 @@ void main(){
                 enqueueRear(input, n);
                 break;
             case 3:
-                printf("\nEnter Value:");
-                scanf("%d",&input);
-                dequeueFront(input, n);
+                dequeueFront(n);
                 break;
             case 4:
-                printf("\nEnter Value:");
-                scanf("%d",&input);
-                dequeueRear(input, n);
+                dequeueRear(n);
                 break;
             case 5:
                 getFront();
@@ -123,11 +121,11 @@ void main(){
                 getRear();
                 break;
             case 7:
-                display();
+                display(n);
                 break;
             case 8:
-                break;
+                free(arr);
+                return 0;
         }
     }
-    free(arr);
 }
